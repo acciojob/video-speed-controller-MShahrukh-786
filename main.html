@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Video Speed Scrubber</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <style>
+        .player {
+            max-width: 800px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .progress {
+            width: 100%;
+            height: 5px;
+            background: #ddd;
+            position: relative;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .progress__filled {
+            height: 100%;
+            width: 0%;
+            background: #f00;
+        }
+        button, input {
+            margin: 0 5px;
+        }
+    </style>
 </head>
 <body>
-
-  <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></video>
-    <div class="speed">
-      <div class="speed-bar">1×</div>
+    <div class="player">
+        <video class="video" src="https://www.w3schools.com/html/mov_bbb.mp4" width="800"></video>
+        <div class="progress">
+            <div class="progress__filled"></div>
+        </div>
+        <div class="controls">
+            <button class="player__button">►</button>
+            <button class="rewind">« 10s</button>
+            <button class="fastforward">25s »</button>
+            <input class="volume" type="range" min="0" max="1" step="0.05" value="1">
+            <input class="playbackSpeed" type="range" min="0.5" max="2" step="0.1" value="1">
+        </div>
     </div>
-  </div>
-
-<script  src="./script.js">
-  //Your code goes here
-</script>
+    <script src="scripts.js"></script>
 </body>
 </html>
